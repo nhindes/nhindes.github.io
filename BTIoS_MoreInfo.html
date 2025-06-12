@@ -1,0 +1,177 @@
+<!DOCTYPE HTML>
+<!--
+	Forty by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>BTIoS More Info</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+				<header id="header" class="alt">
+					<a href="index.html" class="logo"><span>Nic Hindes</span></a>
+					<ul class="icons">
+						<li><a href="https://www.linkedin.com/in/nicolaus-hindes" class="icon brands alt fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
+						<li><a href="documents/NicHindes_SoftwareEngineer_Resume.pdf"> <span>Resume</span></a></li>
+					</ul>
+					<nav>
+						<a href="#menu">Menu</a>
+					</nav>
+				</header>
+
+			<!-- Menu -->
+				<nav id="menu">
+					<ul class="links">
+						<li><a href="index.html">Home</a></li>
+						<li><a href="BTIoS.html">Back</a></li>
+						<li><a href="about.html">About</a></li>
+					</ul>
+					<!--
+					<ul class="actions stacked">
+						<li><a href="#" class="button primary fit">Get Started</a></li>
+						<li><a href="#" class="button fit">Log In</a></li>
+					</ul>
+					-->
+				</nav>
+
+				<!-- Main -->
+					<div id="main" class="alt">
+
+						<!-- One -->
+							<section id="one">
+								<div class="inner">
+									<header class="major">
+										<h1>Dynamic Audio Emitters</h1>
+									</header>
+									<!--<span class="image main"><img src="images/pic11.jpg" alt="" /></span>-->
+									<p>
+										My team's audio lead aproached me with a problem: The waterfalls in the game are too big for their sound to be emitted from a single point. 
+										The solution was to build some kind of audio emitter that would follow the player, but only within the confines of the waterfall. 
+										In order to accomplish this, I turned to linear algebra. By defining a waterfall as a plane it was a simple task to calculate the nearst point on that plane and treat that point as the audio emitter.
+									</p>
+									<span class="image"><img src="images/NearestPointOnPlane.jpg" alt="" style="width: 500px; height: 300px;"/></span>
+									<p>
+										By defining width and height, I was able to then restrict the emitter to a section of the plane. This prevented the emitter from "leaving" the waterfall and chasing the player where it was not supposed to.
+									</p>
+									<p>
+										The above system worked, but was a pain to use. The plane, width, and height of every waterfall had to be carefully input by hand which took time and was frustrating to tweek.
+										To solve this, I made use of Unity's prefab system. I created a prefab consisting of a Unity Plane Object and and a sphere parented to to plane. 
+										At run time, the shpere's location is determined as the closest point on the plane and its restrictions are based off the extends of the Plane Object.
+										This resulted in a prefab that could be rotated, scaled, or translated in any way my audio team wanted, all through the Unity editor.
+									</p>
+									</div>
+							</section>
+							<!-- Two -->
+							<section id="one">
+								<div class="inner">
+									<header class="major">
+										<h1>Minigames</h1>
+									</header>
+									<!--<span class="image main"><img src="images/pic11.jpg" alt="" /></span>-->
+									<p>
+										While the designers were hard at work playtesting and building levels, they asked me to create and implement a couple minigames for them to sprinkle in to the world.
+										We decided on a crab that, when hit, dropped a shell collectable. I requested a simple crab model from the art team and got to work. 
+									</p>
+									<span class="image"><img src="" alt="" style="width: 500px; height: 300px;"/></span>
+									<p>
+										The implementation is quite simple. The crab is just an object that with a list of waypoints. It moves toward the next waypoint in the list and when it gets there, it turns and moves toward the next one.
+									</p>
+									<p>
+										I got out of my depth when it came to the animations. As a programmer, I had little experince using Unity's animation system and the art team was hard at work on their own tasks.
+										So I started messing with keyframes and played around with different versions of what would happen when the crab got hit. Originally, it would get knocked over and its eyes became Xs.
+										This did not test well as many players thought the crabs were cute and felt bad about killing them. Ultimately, I removed the Xs and andded a short running away animation to show that the crab was ok. 
+
+										This minigame is reported as the highlight of the game by many playtesters.
+									</p>
+									</div>
+							</section>
+					</div>
+
+				<!-- Contact 
+					<section id="contact">
+						<div class="inner">
+							<section>
+								<form method="post" action="#">
+									<div class="fields">
+										<div class="field half">
+											<label for="name">Name</label>
+											<input type="text" name="name" id="name" />
+										</div>
+										<div class="field half">
+											<label for="email">Email</label>
+											<input type="text" name="email" id="email" />
+										</div>
+										<div class="field">
+											<label for="message">Message</label>
+											<textarea name="message" id="message" rows="6"></textarea>
+										</div>
+									</div>
+									<ul class="actions">
+										<li><input type="submit" value="Send Message" class="primary" /></li>
+										<li><input type="reset" value="Clear" /></li>
+									</ul>
+								</form>
+							</section>
+							<section class="split">
+								<section>
+									<div class="contact-method">
+										<span class="icon solid alt fa-envelope"></span>
+										<h3>Email</h3>
+										<a href="#">information@untitled.tld</a>
+									</div>
+								</section>
+								<section>
+									<div class="contact-method">
+										<span class="icon solid alt fa-phone"></span>
+										<h3>Phone</h3>
+										<span>(000) 000-0000 x12387</span>
+									</div>
+								</section>
+								<section>
+									<div class="contact-method">
+										<span class="icon solid alt fa-home"></span>
+										<h3>Address</h3>
+										<span>1234 Somewhere Road #5432<br />
+										Nashville, TN 00000<br />
+										United States of America</span>
+									</div>
+								</section>
+							</section>
+						</div>
+					</section>
+					-->
+				<!-- Footer -->
+					<footer id="footer">
+						<div class="inner">
+							<ul class="icons">
+								<li><a href="#" class="icon brands alt fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
+							</ul>
+							<ul class="copyright">
+								<li>&copy; Untitled</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li>
+							</ul>
+						</div>
+					</footer>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
